@@ -345,6 +345,8 @@ body {
   background: var(--color-paper);
   align-content: start;
   gap: var(--space-3);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .postcard-card__stamp {
