@@ -404,6 +404,13 @@ body {
   padding: var(--space-6) var(--space-5);
 }
 
+.finale__message {
+  margin: var(--space-4) auto var(--space-5);
+  width: min(100%, 680px);
+  font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+  line-height: 1.55;
+}
+
 .floating-controls {
   position: fixed;
   right: 1rem;
