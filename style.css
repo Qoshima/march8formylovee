@@ -259,6 +259,25 @@ body {
   display: block;
 }
 
+.moment-card--portrait {
+  grid-template-columns: minmax(240px, 0.82fr) 1.18fr;
+}
+
+.moment-card--portrait:nth-child(even) {
+  grid-template-columns: 1.18fr minmax(240px, 0.82fr);
+}
+
+.moment-card--portrait .moment-card__media {
+  min-height: 420px;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(160deg, rgba(201, 128, 139, 0.16), rgba(200, 169, 107, 0.08));
+}
+
+.moment-card--portrait .moment-card__media img {
+  object-fit: contain;
+  padding: 0.35rem;
+}
+
 .moment-card__content {
   padding: var(--space-4);
 }
@@ -460,6 +479,10 @@ body {
 
   .moment-card__media {
     min-height: 210px;
+  }
+
+  .moment-card--portrait .moment-card__media {
+    min-height: 340px;
   }
 
   .postcard-card {

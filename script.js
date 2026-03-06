@@ -1,15 +1,15 @@
 const config = {
   photos: [
-    { src: "assets/photos/photo01.jpg", alt: "Вы вместе, счастливый момент", caption: "Подпись к фото №1" },
-    { src: "assets/photos/photo02.jpg", alt: "Тёплая прогулка вдвоём", caption: "Подпись к фото №2" },
+    { src: "assets/photos/photo01.jpg", alt: "Вы вместе, счастливый момент", caption: "Подпись к фото №1", portrait: true },
+    { src: "assets/photos/photo02.jpg", alt: "Тёплая прогулка вдвоём", caption: "Подпись к фото №2", portrait: true },
     { src: "assets/photos/photo03.jpg", alt: "Улыбка любимой девушки", caption: "Подпись к фото №3" },
     { src: "assets/photos/photo04.jpg", alt: "Объятия и нежность", caption: "Подпись к фото №4" },
     { src: "assets/photos/photo05.jpg", alt: "Красивый совместный кадр", caption: "Подпись к фото №5" },
     { src: "assets/photos/photo06.jpg", alt: "Светлый день вместе", caption: "Подпись к фото №6" },
     { src: "assets/photos/photo07.jpg", alt: "Смех и радость", caption: "Подпись к фото №7" },
     { src: "assets/photos/photo08.jpg", alt: "Вечерняя романтика", caption: "Подпись к фото №8" },
-    { src: "assets/photos/photo09.jpg", alt: "Незабываемое свидание", caption: "Подпись к фото №9" },
-    { src: "assets/photos/photo10.jpg", alt: "Нежный взгляд", caption: "Подпись к фото №10" },
+    { src: "assets/photos/photo09.jpg", alt: "Незабываемое свидание", caption: "Подпись к фото №9", portrait: true },
+    { src: "assets/photos/photo10.jpg", alt: "Нежный взгляд", caption: "Подпись к фото №10", portrait: true },
     { src: "assets/photos/photo11.jpg", alt: "Ваш особенный момент", caption: "Подпись к фото №11" },
     { src: "assets/photos/photo12.jpg", alt: "Счастливые воспоминания", caption: "Подпись к фото №12" }
   ],
@@ -80,6 +80,9 @@ function renderPhotos() {
     const article = document.createElement("article");
     article.className = "moment-card reveal";
     article.dataset.reveal = "";
+    if (photo.portrait) {
+      article.classList.add("moment-card--portrait");
+    }
 
     const figure = document.createElement("figure");
     figure.className = "moment-card__media";
