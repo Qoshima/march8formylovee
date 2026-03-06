@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Романтическая история к 8 Марта: ваши фото, воспоминания и открытка с личным посланием."
+    />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>8 Марта, любимая</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marck+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <header id="hero" class="hero section">
+      <div class="hero__decor" aria-hidden="true">
+        <span class="petal petal--1"></span>
+        <span class="petal petal--2"></span>
+        <span class="petal petal--3"></span>
+        <span class="petal petal--4"></span>
+      </div>
+
+      <div class="hero__content reveal" data-reveal>
+        <p class="hero__eyebrow">С 8 Марта</p>
+        <h1 class="hero__title">Для самой любимой девушки</h1>
+        <p class="hero__subtitle">
+          Небольшая история о нас и открытка с самыми тёплыми словами.
+        </p>
+        <button id="openStoryBtn" class="btn btn--primary" type="button">
+          Открыть историю
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="moments" class="moments section" aria-labelledby="momentsTitle">
+        <div class="section__header reveal" data-reveal>
+          <p class="section__eyebrow">Наши моменты</p>
+          <h2 id="momentsTitle">Фотографии, в которых живут чувства</h2>
+        </div>
+
+        <div id="momentsGrid" class="moments__grid" aria-live="polite"></div>
+      </section>
+
+      <section id="postcard" class="postcard section" aria-labelledby="postcardTitle">
+        <div class="section__header reveal" data-reveal>
+          <p class="section__eyebrow">Открытка</p>
+          <h2 id="postcardTitle">Нажми, чтобы открыть</h2>
+        </div>
+
+        <button
+          id="postcardCard"
+          class="postcard-card reveal"
+          data-reveal
+          type="button"
+          aria-expanded="false"
+          aria-controls="postcardMessage"
+        >
+          <span class="postcard-card__face postcard-card__face--front" aria-hidden="false">
+            <span class="postcard-card__stamp">8 Марта</span>
+            <span class="postcard-card__front-title">Любимой</span>
+            <span class="postcard-card__hint">Нажми, чтобы открыть</span>
+          </span>
+
+          <span class="postcard-card__face postcard-card__face--inside" aria-hidden="true">
+            <span class="postcard-card__inside-title">Моё послание тебе</span>
+            <span id="postcardMessage" class="postcard-card__message">
+              Здесь напиши свои слова для неё. Этот блок специально оставлен для твоего личного текста.
+            </span>
+            <span class="postcard-card__signature">С любовью, [Твоё имя]</span>
+            <span class="postcard-card__date">8 марта 2026</span>
+          </span>
+        </button>
+      </section>
+
+      <section id="finale" class="finale section" aria-labelledby="finaleTitle">
+        <div class="finale__content reveal" data-reveal>
+          <p class="section__eyebrow">Финал</p>
+          <h2 id="finaleTitle" class="finale__title">
+            Пусть каждый твой день будет таким же прекрасным, как ты.
+          </h2>
+          <button id="replayBtn" class="btn btn--secondary" type="button">
+            Смотреть заново
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="floating-controls" aria-label="Управление">
+      <button id="musicToggle" class="chip" type="button" aria-pressed="false">
+        Музыка: выкл
+      </button>
+      <button id="scrollHintBtn" class="chip chip--soft" type="button">Вниз ↓</button>
+    </aside>
+
+    <div id="musicPrompt" class="music-prompt" hidden>
+      <p class="music-prompt__text">Браузер заблокировал автозапуск. Включить музыку?</p>
+      <button id="musicPromptBtn" class="btn btn--primary" type="button">Включить музыку</button>
+    </div>
+
+    <audio id="bgMusic" preload="auto" loop></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
