@@ -48,7 +48,9 @@ const elements = {
   bgMusic: document.getElementById("bgMusic"),
   musicPrompt: document.getElementById("musicPrompt"),
   musicPromptBtn: document.getElementById("musicPromptBtn"),
-  scrollHintBtn: document.getElementById("scrollHintBtn")
+  scrollHintBtn: document.getElementById("scrollHintBtn"),
+  postcardFront: document.querySelector(".postcard-card__face--front"),
+  postcardInside: document.querySelector(".postcard-card__face--inside")
 };
 
 const state = {
@@ -192,6 +194,10 @@ function setupPostcardInteraction() {
     const opened = elements.postcardCard.classList.toggle("is-open");
     elements.postcardCard.setAttribute("aria-expanded", String(opened));
     elements.postcardCard.setAttribute("aria-label", opened ? config.uiText.postcardOpen : config.uiText.postcardClosed);
+    if (elements.postcardFront && elements.postcardInside) {
+      elements.postcardFront.setAttribute("aria-hidden", String(opened));
+      elements.postcardInside.setAttribute("aria-hidden", String(!opened));
+    }
   });
 }
 

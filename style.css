@@ -295,7 +295,7 @@ body {
 }
 
 .postcard {
-  perspective: 1400px;
+  perspective: none;
 }
 
 .postcard-card {
@@ -308,8 +308,7 @@ body {
   background: transparent;
   position: relative;
   box-shadow: var(--shadow-card);
-  transform-style: preserve-3d;
-  transition: transform var(--duration-slow) var(--easing), box-shadow var(--duration-slow) var(--easing);
+  transition: box-shadow var(--duration-slow) var(--easing);
   cursor: pointer;
 }
 
@@ -318,7 +317,7 @@ body {
 }
 
 .postcard-card.is-open {
-  transform: rotateY(180deg);
+  box-shadow: 0 24px 54px rgba(49, 21, 30, 0.26);
 }
 
 .postcard-card__face {
@@ -327,7 +326,7 @@ body {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(161, 77, 93, 0.24);
   padding: var(--space-5);
-  backface-visibility: hidden;
+  transition: opacity var(--duration-normal) var(--easing), transform var(--duration-normal) var(--easing);
   display: grid;
   align-content: center;
   justify-items: center;
@@ -341,12 +340,26 @@ body {
 }
 
 .postcard-card__face--inside {
-  transform: rotateY(180deg);
+  transform: translateY(10px);
   background: var(--color-paper);
   align-content: start;
   gap: var(--space-3);
   overflow-y: auto;
   overscroll-behavior: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.postcard-card.is-open .postcard-card__face--front {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.postcard-card.is-open .postcard-card__face--inside {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .postcard-card__stamp {
